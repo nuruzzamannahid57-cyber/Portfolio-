@@ -291,7 +291,7 @@
 
 <nav id="mainNav">
   <div class="wrap">
-    <div class="brand">NN /</div>
+    <div class="brand">NN/</div>
     <div class="navlinks" id="navLinks">
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
@@ -600,7 +600,7 @@ const navLinkEls=document.querySelectorAll('.navlinks a');
 window.addEventListener('scroll',()=>{let current='';sections.forEach(section=>{const sectionTop=section.offsetTop-100;if(window.scrollY>=sectionTop){current=section.getAttribute('id');}});navLinkEls.forEach(link=>{link.style.color='';if(link.getAttribute('href')==='#'+current){link.style.color='var(--accent)';}});},{passive:true});
 
 const brand=document.querySelector('.brand');
-const originalText=brand.textContent;
+const originalText='NN/';
 const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
 brand.addEventListener('mouseenter',()=>{let iterations=0;const interval=setInterval(()=>{brand.textContent=originalText.split('').map((char,idx)=>{if(idx<iterations)return originalText[idx];return chars[Math.floor(Math.random()*chars.length)];}).join('');if(iterations>=originalText.length)clearInterval(interval);iterations+=1/2;},30);});
 brand.addEventListener('mouseleave',()=>{brand.textContent=originalText;});
