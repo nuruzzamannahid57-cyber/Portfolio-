@@ -356,7 +356,8 @@
     <p class="hero-sub">I'm Nuruzzaman Nahid — I grow B2B and B2C accounts and partnerships at Carrybee Express, and in the process I've ended up building the internal dashboards, trackers, and forms that our operations and business development teams use daily.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#work">View my work</a>
-      <a class="btn btn-ghost" href="mailto:nuruzzamannahid922@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" id="getInTouchBtn" href="mailto:nuruzzamannahid922@gmail.com">Get in touch</a>
+      <span id="copyToast" style="display:none; align-self:center; font-size:13px; color:var(--mint); font-weight:600;">✓ Email copied — nuruzzamannahid922@gmail.com</span>
     </div>
     <div class="stats">
       <div class="stat"><div class="num" data-count="115" data-suffix="+">0</div><div class="lbl">B2B &amp; B2C accounts activated</div></div>
@@ -512,6 +513,23 @@
 <footer>Nuruzzaman Nahid · Dhaka, Bangladesh</footer>
 
 <script>
+  const emailAddress = 'nuruzzamannahid922@gmail.com';
+  const getInTouchBtn = document.getElementById('getInTouchBtn');
+  const copyToast = document.getElementById('copyToast');
+  if(getInTouchBtn){
+    getInTouchBtn.addEventListener('click', () => {
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(emailAddress).then(() => {
+          if(copyToast){
+            copyToast.style.display = 'inline';
+            clearTimeout(copyToast._hideTimer);
+            copyToast._hideTimer = setTimeout(() => { copyToast.style.display = 'none'; }, 4000);
+          }
+        }).catch(() => {});
+      }
+      // mailto: still fires via default href behavior for browsers with a mail client configured
+    });
+  }
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Scroll progress bar
