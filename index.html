@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nuruzzaman Nahid — Growth &amp; Partnerships</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#111013;
@@ -208,9 +208,160 @@
 
   @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important; transition-duration:.001ms !important;}}
   :focus-visible{outline:2px solid var(--red); outline-offset:3px;}
+
+  /* ===== LOADER OVERLAY ===== */
+  .loader-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Inter', 'Noto Sans Bengali', system-ui, -apple-system, sans-serif;
+    transition: opacity 1s cubic-bezier(.22,1,.36,1), visibility 1s ease;
+  }
+  .loader-overlay.done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .loader-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .loader-word {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    text-shadow: 0 0 30px rgba(230, 57, 70, 0.2), 0 0 60px rgba(230, 57, 70, 0.08);
+    min-height: 1.2em;
+    line-height: 1.05;
+    color: #f5f5f5;
+    font-family: 'Inter', 'Noto Sans Bengali', system-ui, -apple-system, sans-serif;
+  }
+  .loader-word.morphing {
+    animation: loader-glitch 0.15s ease-in-out;
+  }
+  @keyframes loader-glitch {
+    0% { transform: translate(0); filter: hue-rotate(0deg); }
+    20% { transform: translate(-3px, 2px); filter: hue-rotate(90deg); }
+    40% { transform: translate(3px, -2px); filter: hue-rotate(180deg); }
+    60% { transform: translate(-2px, -1px); filter: hue-rotate(270deg); }
+    80% { transform: translate(2px, 1px); filter: hue-rotate(360deg); }
+    100% { transform: translate(0); filter: hue-rotate(0deg); }
+  }
+  .loader-lang-label {
+    font-size: clamp(0.75rem, 1.3vw, 1rem);
+    color: #555555;
+    margin-top: 1.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+  }
+  .loader-lang-label.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .loader-progress-ring {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    z-index: 1;
+    opacity: 0.1;
+  }
+  .loader-progress-ring circle {
+    fill: none;
+    stroke: #e63946;
+    stroke-width: 1.5;
+    stroke-dasharray: 880;
+    stroke-dashoffset: 880;
+    transition: stroke-dashoffset 0.1s linear;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+  .loader-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .loader-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #e63946;
+    border-radius: 50%;
+    opacity: 0;
+    animation: loader-float 4s ease-in-out infinite;
+  }
+  @keyframes loader-float {
+    0%, 100% { opacity: 0; transform: translateY(0) scale(0); }
+    50% { opacity: 0.3; transform: translateY(-120px) scale(1); }
+  }
+  .loader-final-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #e63946 0%, transparent 70%);
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1.2s ease;
+    filter: blur(100px);
+  }
+  .loader-final-glow.active {
+    opacity: 0.1;
+  }
+  .loader-counter {
+    position: absolute;
+    bottom: 3rem;
+    font-size: 0.9rem;
+    color: #e63946;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .loader-counter.visible {
+    opacity: 1;
+  }
+  /* Prevent portfolio scroll during loader */
+  body.loader-active {
+    overflow: hidden;
+  }
+
 </style>
+<base target="_blank">
 </head>
-<body>
+<body class="loader-active">
+
+<!-- LOADER OVERLAY -->
+<div class="loader-overlay" id="loaderOverlay">
+  <div class="loader-stage">
+    <div class="loader-particles" id="loaderParticles"></div>
+    <div class="loader-final-glow" id="loaderFinalGlow"></div>
+    <svg class="loader-progress-ring" viewBox="0 0 300 300">
+      <circle cx="150" cy="150" r="140" id="loaderRing"/>
+    </svg>
+    <div class="loader-word" id="loaderWord">WELCOME</div>
+    <div class="loader-lang-label" id="loaderLangLabel">English</div>
+    <div class="loader-counter" id="loaderCounter">1</div>
+  </div>
+</div>
+
 
 <nav>
   <div class="nav-mark">NAHID<span>.</span></div>
@@ -350,6 +501,194 @@
 </footer>
 
 <script>
+  /* ===== LOADER SCRIPT ===== */
+  const loaderWelcomes = [
+    { text: "WELCOME", lang: "English" },
+    { text: "BIENVENUE", lang: "French" },
+    { text: "WILLKOMMEN", lang: "German" },
+    { text: "BENVENUTO", lang: "Italian" },
+    { text: "BIENVENIDO", lang: "Spanish" },
+    { text: "VÄLKOMMEN", lang: "Swedish" },
+    { text: "VELKOMMEN", lang: "Danish / Norwegian" },
+    { text: "TERVETULOA", lang: "Finnish" },
+    { text: "WELKOM", lang: "Dutch" },
+    { text: "BEM-VINDO", lang: "Portuguese" },
+    { text: "ДОБРО ПОЖАЛОВАТЬ", lang: "Russian" },
+    { text: "欢迎", lang: "Chinese" },
+    { text: "ようこそ", lang: "Japanese" },
+    { text: "환영합니다", lang: "Korean" },
+    { text: "स्वागत है", lang: "Hindi" },
+    { text: "வரவேற்பு", lang: "Tamil" },
+    { text: "స్వాగతం", lang: "Telugu" },
+    { text: "സ്വാഗതം", lang: "Malayalam" },
+    { text: "ಸ್ವಾಗತ", lang: "Kannada" },
+    { text: "स्वागत आहे", lang: "Marathi" },
+    { text: "स्वागतम्", lang: "Sanskrit" },
+    { text: "خوش آمدید", lang: "Urdu" },
+    { text: "خوش آمدید", lang: "Persian" },
+    { text: "أهلاً وسهلاً", lang: "Arabic" },
+    { text: "ברוך הבא", lang: "Hebrew" },
+    { text: "Hoş Geldiniz", lang: "Turkish" },
+    { text: "ΚΑΛΩΣ ΗΡΘΑΤΕ", lang: "Greek" },
+    { text: "BUN VENIT", lang: "Romanian" },
+    { text: "VÍTEJTE", lang: "Czech" },
+    { text: "WITAMY", lang: "Polish" },
+    { text: "ÜDVÖZÖLJÜK", lang: "Hungarian" },
+    { text: "DOBRODOŠLI", lang: "Croatian / Serbian" },
+    { text: "DOBRODOŠLI", lang: "Slovenian" },
+    { text: "TAŋGAPPALLU", lang: "Greenlandic" },
+    { text: "WELCOME", lang: "Irish" },
+    { text: "FA'AFAEILOA'I", lang: "Samoan" },
+    { text: "MAURI", lang: "Cook Islands Maori" },
+    { text: "WELCOME", lang: "Welsh" },
+    { text: "FAILTE", lang: "Scottish Gaelic" },
+    { text: "BENVINGUT", lang: "Catalan" },
+    { text: "ONGI ETORRI", lang: "Basque" },
+    { text: "WELCOME", lang: "Galician" },
+    { text: "BENVENGVDA", lang: "Romansh" },
+    { text: "WELCOME", lang: "Maltese" },
+    { text: "WELCOME", lang: "Icelandic" },
+    { text: "TÆRE TULEMAST", lang: "Estonian" },
+    { text: "LAIPNI LŪDZAM", lang: "Latvian" },
+    { text: "SVEIKI ATVYKE", lang: "Lithuanian" },
+    { text: "WELCOME", lang: "Albanian" },
+    { text: "ДОБРЕ ДОШЛИ", lang: "Bulgarian" },
+    { text: "WELCOME", lang: "Macedonian" },
+    { text: "WELCOME", lang: "Belarusian" },
+    { text: "ЛАСКАВО ПРОСИМО", lang: "Ukrainian" },
+    { text: "WELCOME", lang: "Georgian" },
+    { text: "WELCOME", lang: "Armenian" },
+    { text: "WELCOME", lang: "Azerbaijani" },
+    { text: "WELCOME", lang: "Kazakh" },
+    { text: "WELCOME", lang: "Uzbek" },
+    { text: "WELCOME", lang: "Kyrgyz" },
+    { text: "WELCOME", lang: "Tajik" },
+    { text: "WELCOME", lang: "Turkmen" },
+    { text: "WELCOME", lang: "Mongolian" },
+    { text: "WELCOME", lang: "Tibetan" },
+    { text: "WELCOME", lang: "Nepali" },
+    { text: "WELCOME", lang: "Sinhala" },
+    { text: "WELCOME", lang: "Burmese" },
+    { text: "WELCOME", lang: "Thai" },
+    { text: "WELCOME", lang: "Lao" },
+    { text: "WELCOME", lang: "Khmer" },
+    { text: "WELCOME", lang: "Vietnamese" },
+    { text: "WELCOME", lang: "Indonesian" },
+    { text: "WELCOME", lang: "Malay" },
+    { text: "WELCOME", lang: "Filipino" },
+    { text: "WELCOME", lang: "Javanese" },
+    { text: "WELCOME", lang: "Sundanese" },
+    { text: "WELCOME", lang: "Madurese" },
+    { text: "WELCOME", lang: "Minangkabau" },
+    { text: "WELCOME", lang: "Buginese" },
+    { text: "WELCOME", lang: "Banjarese" },
+    { text: "WELCOME", lang: "Acehnese" },
+    { text: "WELCOME", lang: "Balinese" },
+    { text: "WELCOME", lang: "Sasak" },
+    { text: "WELCOME", lang: "Makassarese" },
+    { text: "WELCOME", lang: "Mongondow" },
+    { text: "WELCOME", lang: "Gorontalo" },
+    { text: "WELCOME", lang: "Tolaki" },
+    { text: "WELCOME", lang: "Bimanese" },
+    { text: "WELCOME", lang: "Komering" },
+    { text: "WELCOME", lang: "Lampung" },
+    { text: "WELCOME", lang: "Rejang" },
+    { text: "WELCOME", lang: "Musi" },
+    { text: "WELCOME", lang: "Palembang" },
+    { text: "WELCOME", lang: "Bangka" },
+    { text: "WELCOME", lang: "Belitung" },
+    { text: "WELCOME", lang: "Sambas Malay" },
+    { text: "WELCOME", lang: "Pontianak Malay" },
+    { text: "WELCOME", lang: "Kutai" },
+    { text: "WELCOME", lang: "Berau" },
+    { text: "WELCOME", lang: "Banjar" },
+    { text: "WELCOME", lang: "Tidung" },
+    { text: "WELCOME", lang: "Bulungan" },
+    { text: "স্বাগতম", lang: "Bengali" }
+  ];
+
+  const loaderWordEl = document.getElementById('loaderWord');
+  const loaderLangEl = document.getElementById('loaderLangLabel');
+  const loaderRing = document.getElementById('loaderRing');
+  const loaderFinalGlow = document.getElementById('loaderFinalGlow');
+  const loaderCounterEl = document.getElementById('loaderCounter');
+  const loaderParticlesContainer = document.getElementById('loaderParticles');
+  const loaderOverlay = document.getElementById('loaderOverlay');
+
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'loader-particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 4 + 's';
+    p.style.animationDuration = (3 + Math.random() * 3) + 's';
+    loaderParticlesContainer.appendChild(p);
+  }
+
+  let loaderCurrent = 0;
+  let loaderIntervalId = null;
+  const loaderTotalDuration = 8000;
+  const loaderStepTime = loaderTotalDuration / loaderWelcomes.length;
+  const loaderCircumference = 2 * Math.PI * 140;
+
+  function updateLoaderWord() {
+    if (loaderCurrent >= loaderWelcomes.length) {
+      clearInterval(loaderIntervalId);
+      loaderFinalGlow.classList.add('active');
+      loaderWordEl.style.textShadow = '0 0 40px rgba(230, 57, 70, 0.2), 0 0 80px rgba(230, 57, 70, 0.2)';
+      loaderWordEl.style.color = '#fff';
+      loaderCounterEl.textContent = '100';
+      // Fade out loader after a brief pause
+      setTimeout(() => {
+        loaderOverlay.classList.add('done');
+        document.body.classList.remove('loader-active');
+        // Trigger portfolio reveal animations
+        document.querySelectorAll('.reveal').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('in');
+          }
+        });
+      }, 600);
+      return;
+    }
+
+    const item = loaderWelcomes[loaderCurrent];
+    loaderWordEl.classList.add('morphing');
+    setTimeout(() => loaderWordEl.classList.remove('morphing'), 150);
+    loaderWordEl.textContent = item.text;
+    loaderLangEl.textContent = item.lang;
+    loaderLangEl.classList.remove('visible');
+    void loaderLangEl.offsetWidth;
+    loaderLangEl.classList.add('visible');
+    loaderCounterEl.textContent = loaderCurrent + 1;
+    const progress = (loaderCurrent + 1) / loaderWelcomes.length;
+    const offset = loaderCircumference - (progress * loaderCircumference);
+    loaderRing.style.strokeDashoffset = offset;
+    const hue = 350 + (progress * 10);
+    loaderWordEl.style.color = 'hsl(' + hue + ', 75%, 70%)';
+    if (loaderCurrent === 0) {
+      loaderCounterEl.classList.add('visible');
+    }
+    loaderCurrent++;
+  }
+
+  function startLoader() {
+    loaderCurrent = 0;
+    loaderRing.style.strokeDashoffset = loaderCircumference;
+    loaderFinalGlow.classList.remove('active');
+    loaderWordEl.style.textShadow = '';
+    loaderWordEl.style.color = '';
+    loaderCounterEl.classList.remove('visible');
+    loaderCounterEl.textContent = '1';
+    updateLoaderWord();
+    loaderIntervalId = setInterval(updateLoaderWord, loaderStepTime);
+  }
+
+  startLoader();
+
+  /* ===== PORTFOLIO SCRIPT ===== */
+
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.15});
@@ -385,6 +724,7 @@
       });
     });
   }
+
 </script>
 
 </body>
