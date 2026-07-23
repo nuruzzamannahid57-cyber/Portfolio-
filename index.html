@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nuruzzaman Nahid — Growth &amp; Partnerships</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADUklEQVR4nO2VTWxUVRTH77kf897ra+ejM+0bp84EpYChaQnV6sa2idJQZ0OiCUjYuCKBKFQSXRIJERIIrExM0IUa2RiNAXHjR6o7qbUL5BVJaYMuBmkHOtOZee/NvPvucfGkqTOgKzbYm5Obc5Ob88v5uP8LiXiSPMxFH2r0dcD/A8CbzgDAGEVEpZBSGgQBpTR0CCGhwyhFQgAAEQEAAJRSSqn/BgCQIAiWl0tCCMPQy+VyNBp1HNfz3Pb2dgCo1WrRaHSlUuGc+74UgnteXWGgRTTTNBGxFUDXRAffl93d3R9+8P7BA/vT6fTpUyc55/n8zvPnP9669als9vGzZ04JIQ4fej2fH3/7rTfz+fFz59678OXnu3e/4rouANwnhUQ8GVqys8vQzWeHnkNU1+yr+ZfyS7cLPZnsp598hIhHJiZGR0ZrlVJXyvph8vuTJ07MTE+9e/x4cbGAiH7dGRke0bW2ZGfXasDQmpsMAH/cXOCcbdm8pVC4lUjErXR61v61r68PkSyXSqlUstFoeK5XqVSllIXCrR0vjs3PL+x9dU+9Xm9N4h8ARCIEX1mp3L27PDT0tOd5lmXForGLX13q3bTRNNvisdi333w9OjrsOI4QnADoum5ftS9cvLRhQ47dr0TNU0QIBErZ9uwzQ4Mr5Uoul+3tfTKVShIglmW5rnvtt+uarlNGw5YqpVzPi3Z01H1fomztcnOJEJEgXp76uSeT4YLlctmG78/PL3DGNvVuXFoq7tv32uWfpnTDkFIqFSiFRybe2PXyrt+v2HsTj2kA+C8ARKSUZjIZ255ljOWy2bEdL0xO/ji2c7xYvDM8/LxpmpFIJJ6ItxlGPB7TNC2dto4eO1Zx3e8+++KdJzZHCFGIaysFq/8BAEgZxGId2wYGpn+Z2TbQzwWXUi4uLs3NzQ0Obtc0nTE6PT3T399XKpWTyc5i8U5PJhPR9bkbN/5cuDkQS1xxqpI8AHCPIR3HMc12x6khEgAihDAMo1qtKaUIQdM0XddljEkpOeeNhq9UYOhGRNeqgTQpa2o0NP1oAPC3HjC2WjelFKUUgBACoXgQQgAIIgnnMrzDAIKWx9w8RYgYyk64r661UvMg2WmNTh4FuV4HrAPWAY8C4C92eYJPJbWKFQAAAABJRU5ErkJggg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -206,6 +207,10 @@
   }
   @media(max-width:720px){footer{padding:20px 22px; flex-direction:column; gap:8px;}}
 
+  @media(max-width:380px){
+    .loader-word{font-size: clamp(2.2rem, 12vw, 3rem);}
+    .loader-progress-ring{width: 240px; height: 240px;}
+  }
   @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important; transition-duration:.001ms !important;}}
   :focus-visible{outline:2px solid var(--red); outline-offset:3px;}
 
@@ -214,6 +219,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
+    touch-action: none;
     background: #111111;
     display: flex;
     justify-content: center;
@@ -278,8 +284,8 @@
   }
   .loader-progress-ring {
     position: absolute;
-    width: 340px;
-    height: 340px;
+    width: clamp(260px, 70vw, 340px);
+    height: clamp(260px, 70vw, 340px);
     z-index: 1;
     opacity: 0.1;
   }
@@ -341,6 +347,7 @@
   /* Prevent portfolio scroll during loader */
   body.loader-active {
     overflow: hidden;
+    overscroll-behavior: none;
   }
 
 </style>
@@ -627,7 +634,7 @@
 
   let loaderCurrent = 0;
   let loaderIntervalId = null;
-  const loaderTotalDuration = 8000;
+  const loaderTotalDuration = 6000;
   const loaderStepTime = loaderTotalDuration / loaderWelcomes.length;
   const loaderCircumference = 2 * Math.PI * 140;
 
