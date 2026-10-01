@@ -140,6 +140,9 @@
     text-transform:uppercase; letter-spacing:.06em; transition:letter-spacing .3s ease;
   }
   .g-card:hover .g-tag{letter-spacing:.1em;}
+  .g-links{display:flex; gap:16px; margin-top:18px; font-size:12.5px; font-weight:600;}
+  .g-links a{color:var(--text); border-bottom:1px solid var(--line); padding-bottom:3px; transition:color .25s ease, border-color .25s ease;}
+  .g-links a:hover{color:var(--red); border-color:var(--red);}
 
   /* ---------------- SPOTLIGHT / TRUSTED-BY ---------------- */
   .spotlight{
@@ -401,6 +404,45 @@
     <p>Not side projects — production tools built to fix a real bottleneck my team hit.</p>
   </div>
   <div class="gallery-track">
+    <div class="g-card">
+      <div class="g-thumb"><span>Escalation Form</span></div>
+      <h3>Merchants Issues Dashboard</h3>
+      <p>Merchant-facing intake form where issues get logged and escalated into one central trail, instead of scattered chats and sheets.</p>
+      <span class="g-tag">MVP</span>
+      <div class="g-links">
+        <a href="https://central-issues-escalation-form.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
+        <a href="https://github.com/nuruzzamannahid-dot/Merchants-issues-Dashboard" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="g-card">
+      <div class="g-thumb"><span>Ops Console</span></div>
+      <h3>Central Issues Log — OPS Dashboard</h3>
+      <p>The operations-side console for the central issues log: every escalated issue in one place, so ops can track, act on and close them.</p>
+      <span class="g-tag">MVP</span>
+      <div class="g-links">
+        <a href="https://central-issues-escalation-ops-dashboard.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
+        <a href="https://github.com/nuruzzamannahid-dot/Central-Issues-Log-OPS-DASHBOARD" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="g-card">
+      <div class="g-thumb"><span>AD Team Dashboard</span></div>
+      <h3>AD Team Issues Dashboard</h3>
+      <p>Dashboard for the Account Development team to follow open issues across accounts and see what needs attention next.</p>
+      <span class="g-tag">MVP</span>
+      <div class="g-links">
+        <a href="https://ad-team-issues-dashboard.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
+        <a href="https://github.com/BossNAHID/Ad-team-issues-Dashboard" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="g-card">
+      <div class="g-thumb"><span>Escalation Form</span></div>
+      <h3>AD Issues Escalation Form</h3>
+      <p>The AD team's escalation form, feeding issues into the dashboard so nothing waits on a spreadsheet.</p>
+      <span class="g-tag">MVP</span>
+      <div class="g-links">
+        <a href="https://github.com/BossNAHID/AD-Issues-Escalation-FORM" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
     <div class="g-card">
       <div class="g-thumb" style="animation-delay:0s"><span>Node · Express · Turso</span></div>
       <h3>CarryBee Issue Tracker</h3>
