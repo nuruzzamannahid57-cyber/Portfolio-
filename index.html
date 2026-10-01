@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#111013">
 <!-- 🛡️ Secure Content Security Policy: Restrict resources, disable eval, prevent unauthorized style/script execution, mitigate XSS and Clickjacking -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-3eBQyqUGf81/o6x9oDaIhEcqyKzoELiItiYeiBENrlQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self';">
-<title>Nuruzzaman Nahid — Growth &amp; Partnerships</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-QFFRNqcCDgnNhs3YNDpRWEXAJe0YKIIqpbRAO/LDUS0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self';">
+<title>Nuruzzaman Nahid — Key Account Manager</title>
+<meta name="description" content="Key Account Manager at CarryBee Express — 731 key merchant accounts, about 25,000 parcels a month, plus the internal tools that run the operation.">
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADUklEQVR4nO2VTWxUVRTH77kf897ra+ejM+0bp84EpYChaQnV6sa2idJQZ0OiCUjYuCKBKFQSXRIJERIIrExM0IUa2RiNAXHjR6o7qbUL5BVJaYMuBmkHOtOZee/NvPvucfGkqTOgKzbYm5Obc5Ob88v5uP8LiXiSPMxFH2r0dcD/A8CbzgDAGEVEpZBSGgQBpTR0CCGhwyhFQgAAEQEAAJRSSqn/BgCQIAiWl0tCCMPQy+VyNBp1HNfz3Pb2dgCo1WrRaHSlUuGc+74UgnteXWGgRTTTNBGxFUDXRAffl93d3R9+8P7BA/vT6fTpUyc55/n8zvPnP9669als9vGzZ04JIQ4fej2fH3/7rTfz+fFz59678OXnu3e/4rouANwnhUQ8GVqys8vQzWeHnkNU1+yr+ZfyS7cLPZnsp598hIhHJiZGR0ZrlVJXyvph8vuTJ07MTE+9e/x4cbGAiH7dGRke0bW2ZGfXasDQmpsMAH/cXOCcbdm8pVC4lUjErXR61v61r68PkSyXSqlUstFoeK5XqVSllIXCrR0vjs3PL+x9dU+9Xm9N4h8ARCIEX1mp3L27PDT0tOd5lmXForGLX13q3bTRNNvisdi333w9OjrsOI4QnADoum5ftS9cvLRhQ47dr0TNU0QIBErZ9uwzQ4Mr5Uoul+3tfTKVShIglmW5rnvtt+uarlNGw5YqpVzPi3Z01H1fomztcnOJEJEgXp76uSeT4YLlctmG78/PL3DGNvVuXFoq7tv32uWfpnTDkFIqFSiFRybe2PXyrt+v2HsTj2kA+C8ARKSUZjIZ255ljOWy2bEdL0xO/ji2c7xYvDM8/LxpmpFIJJ6ItxlGPB7TNC2dto4eO1Zx3e8+++KdJzZHCFGIaysFq/8BAEgZxGId2wYGpn+Z2TbQzwWXUi4uLs3NzQ0Obtc0nTE6PT3T399XKpWTyc5i8U5PJhPR9bkbN/5cuDkQS1xxqpI8AHCPIR3HMc12x6khEgAihDAMo1qtKaUIQdM0XddljEkpOeeNhq9UYOhGRNeqgTQpa2o0NP1oAPC3HjC2WjelFKUUgBACoXgQQgAIIgnnMrzDAIKWx9w8RYgYyk64r661UvMg2WmNTh4FuV4HrAPWAY8C4C92eYJPJbWKFQAAAABJRU5ErkJggg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -355,13 +358,150 @@
     overscroll-behavior: none;
   }
 
+
+  /* ================= UI/UX RETOUCH ================= */
+  :root{ --red-text:#ff6f7b; --red-btn:#d42e3b; --muted-2:#8f8b92; --focus:#ff9aa2; }
+  html{ scroll-padding-top:84px; }
+  h1,h2{ text-wrap:balance; }
+  p{ text-wrap:pretty; }
+  section{ padding:clamp(88px,12vw,140px) 48px; scroll-margin-top:72px; }
+  @media(max-width:720px){ section{ padding:88px 22px; } }
+  :focus-visible{ outline:3px solid var(--focus); outline-offset:3px; border-radius:6px; }
+  .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+  /* skip link */
+  .skip-link{ position:fixed; left:16px; top:-80px; z-index:10000; background:var(--text); color:#111013; padding:12px 18px; border-radius:10px; font-weight:700; font-size:14px; transition:top .2s ease; }
+  .skip-link:focus{ top:16px; }
+  body.loader-active .skip-link{ display:none; }
+
+  /* nav */
+  nav{ padding:14px 48px; transition:background .3s ease, border-color .3s ease; border-bottom:1px solid transparent; background:linear-gradient(to bottom, rgba(17,16,19,.85), rgba(17,16,19,0)); }
+  nav.scrolled{ background:rgba(17,16,19,.84); border-bottom-color:var(--line); }
+  .nav-mark{ display:inline-flex; align-items:center; min-height:44px; }
+  .nav-links{ gap:6px; }
+  .nav-links a{ display:inline-flex; align-items:center; min-height:44px; padding:0 14px; border-radius:100px; transition:color .25s ease, background .25s ease; }
+  .nav-links a:hover{ background:rgba(255,255,255,.05); }
+  .nav-links a[aria-current="true"]{ color:var(--text); background:rgba(226,55,68,.16); }
+  @media(max-width:720px){
+    nav{ padding:8px 12px 8px 18px; padding-top:calc(8px + env(safe-area-inset-top,0px)); }
+    .nav-links{ display:flex; gap:2px; }
+    .nav-links a{ padding:0 12px; }
+  }
+
+  /* hero */
+  .hero-eyebrow b{ color:var(--red-text); }
+  .hero-sub{ line-height:1.75; }
+  .btn{ min-height:48px; justify-content:center; }
+  .btn-solid{ background:var(--red-btn); box-shadow:0 10px 30px -12px rgba(226,55,68,.7); }
+  .btn-solid:hover{ background:var(--red-btn); transform:translateY(-2px); box-shadow:0 16px 34px -12px rgba(226,55,68,.85); }
+  .btn:active{ transform:translateY(0) scale(.98); }
+  .btn-ghost:hover{ color:var(--red-text); }
+  @media(max-width:480px){ .hero-cta .btn{ flex:1 1 100%; } }
+
+  /* section headings */
+  .eyebrow{ color:var(--red-text); font-size:12.5px; }
+  .sec-head p, .spotlight p, .exp-desc{ color:#b4b0b5; }
+
+  /* gallery */
+  .gallery-ctrl{ display:flex; gap:10px; justify-content:flex-end; padding:0 48px 14px; }
+  @media(max-width:720px){ .gallery-ctrl{ padding:0 22px 12px; } }
+  .gc-btn{ width:48px; height:48px; border-radius:50%; border:1px solid #3a363c; background:var(--card); color:var(--text); display:grid; place-items:center; cursor:pointer; transition:border-color .25s ease, color .25s ease, transform .15s ease, opacity .25s ease; }
+  .gc-btn:hover:not(:disabled){ border-color:var(--red); color:var(--red-text); }
+  .gc-btn:active:not(:disabled){ transform:scale(.94); }
+  .gc-btn:disabled{ opacity:.35; cursor:not-allowed; }
+  .gc-btn svg{ width:20px; height:20px; }
+  .gallery-track{ -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%); mask-image:linear-gradient(90deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%); scroll-padding-inline:48px; }
+  .gallery-track::-webkit-scrollbar-thumb{ background:#4a454c; }
+  .gallery-track:focus-visible{ outline-offset:-4px; }
+  .g-card{ display:flex; flex-direction:column; width:min(340px,84vw); }
+  .g-card:focus-within{ border-color:var(--red); }
+  .g-card p{ color:#b4b0b5; margin-bottom:18px; }
+  .g-card:hover .g-tag, .g-card:hover .g-thumb span{ letter-spacing:.06em; }
+  .g-tag{ align-self:flex-start; margin-top:auto; padding:5px 11px; border:1px solid rgba(255,111,123,.35); border-radius:100px; font-size:12px; letter-spacing:.06em; color:var(--red-text); }
+  .g-tag--mvp{ background:rgba(226,55,68,.16); border-color:rgba(255,111,123,.65); }
+  .g-links{ gap:8px; margin-top:14px; font-size:13px; }
+  .g-links a{ display:inline-flex; align-items:center; min-height:44px; padding:0 14px; border:1px solid var(--line); border-radius:100px; transition:color .25s ease, border-color .25s ease, background .25s ease; }
+  .g-links a:hover{ color:var(--red-text); border-color:var(--red); background:rgba(226,55,68,.08); }
+
+  /* experience */
+  #experience .reveal{ counter-reset:exp; }
+  .exp-row{ counter-increment:exp; transition:background .35s ease; border-radius:4px; }
+  .exp-row:hover{ background:linear-gradient(90deg, rgba(226,55,68,.07), transparent 70%); }
+  .exp-role::before{ content:counter(exp, decimal-leading-zero); display:block; font:600 12px var(--body); letter-spacing:.14em; color:var(--red-text); margin-bottom:10px; }
+  .exp-role span{ color:var(--red-text); font-size:12.5px; }
+
+  /* marquee */
+  .marquee:hover .marquee-track{ animation-play-state:paused; }
+
+  /* contact + footer */
+  .contact-links{ gap:12px; }
+  .contact-links a{ display:inline-flex; align-items:center; min-height:48px; padding:0 20px; border:1px solid var(--line); border-radius:100px; color:var(--text); transition:color .25s ease, border-color .25s ease, background .25s ease; }
+  .contact-links a:hover{ color:var(--red-text); border-color:var(--red); background:rgba(226,55,68,.08); }
+  footer{ padding-bottom:calc(26px + env(safe-area-inset-bottom,0px)); color:var(--muted-2); }
+  footer div{ color:#a7a3a8; }
+
+  /* loader skip */
+  .loader-skip{ position:absolute; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); z-index:3; min-height:44px; padding:0 20px; border-radius:100px; border:1px solid #3a363c; background:rgba(26,24,28,.8); color:#f5f3f0; font:600 13px 'Inter',system-ui,sans-serif; cursor:pointer; transition:border-color .25s ease, color .25s ease; }
+  .loader-skip:hover{ border-color:#e63946; color:var(--red-text); }
+
+  /* motion + input preferences */
+  @media (hover:none){ .g-card:hover{ box-shadow:none; } }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation:none; flex-wrap:wrap; width:auto; padding:0 22px; row-gap:12px; }
+    .g-thumb::before{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ================= CV ADDITIONS ================= */
+  .award{ display:inline-flex; align-items:center; gap:10px; align-self:flex-start; margin-top:36px; padding:10px 18px 10px 14px; border:1px solid rgba(255,111,123,.35); border-radius:100px; background:rgba(226,55,68,.08); font-size:13px; color:#cfcbd0; }
+  .award strong{ color:var(--text); font-weight:600; }
+  .award svg{ width:20px; height:20px; color:var(--red-text); flex:none; }
+  section.stats{ padding:0 48px; margin-top:-8px; }
+  @media(max-width:720px){ section.stats{ padding:0 22px; } }
+  .stats-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+  .stat{ background:var(--card); padding:28px 22px; display:flex; flex-direction:column-reverse; gap:8px; }
+  .stat dt{ font-size:13px; line-height:1.5; color:#b4b0b5; }
+  .stat dd{ margin:0; font-family:var(--disp); font-weight:800; letter-spacing:-.02em; font-size:clamp(30px,3.6vw,44px); line-height:1.05; color:var(--text); font-variant-numeric:tabular-nums; }
+  @media(max-width:900px){ .stats-grid{ grid-template-columns:repeat(2,1fr); } .stat:last-child{ grid-column:1/-1; } }
+  .sub-h{ font-family:var(--disp); font-weight:700; font-size:clamp(20px,2.6vw,26px); margin:76px 0 30px; letter-spacing:-.01em; }
+  .tl{ list-style:none; margin-left:8px; padding-left:30px; border-left:1px solid #3a363c; }
+  .tl > li{ position:relative; padding-bottom:40px; }
+  .tl > li:last-child{ padding-bottom:0; }
+  .tl > li::before{ content:''; position:absolute; left:-37px; top:7px; width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--red); }
+  .tl > li:first-child::before{ background:var(--red); box-shadow:0 0 0 6px rgba(226,55,68,.18); }
+  .tl-top{ display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 16px; }
+  .tl h4{ font-family:var(--disp); font-size:18px; font-weight:700; line-height:1.35; }
+  .tl-org{ color:var(--red-text); font-size:14px; font-weight:600; }
+  .tl-date{ color:var(--muted-2); font-size:13px; margin-left:auto; }
+  @media(max-width:720px){ .tl-date{ margin-left:0; flex-basis:100%; } }
+  .tl ul{ list-style:disc; margin-top:12px; padding-left:18px; color:#b4b0b5; font-size:14.5px; line-height:1.75; max-width:760px; }
+  .tl ul li{ padding-left:4px; margin-top:6px; }
+  .tl ul li::marker{ color:var(--red-text); }
+  .facts{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:76px; }
+  @media(max-width:720px){ .facts{ grid-template-columns:1fr; } }
+  .fact{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px; }
+  .fact .eyebrow{ margin-bottom:12px; }
+  .fact-title{ font-family:var(--disp); font-weight:700; font-size:19px; margin-bottom:8px; }
+  .fact p:last-child{ color:#b4b0b5; font-size:14px; line-height:1.7; }
+  .skill-groups{ display:grid; grid-template-columns:1fr 1fr; gap:34px 40px; }
+  @media(max-width:720px){ .skill-groups{ grid-template-columns:1fr; } }
+  .sg-title{ font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:#b4b0b5; font-weight:600; margin-bottom:12px; }
+  .chips{ list-style:none; display:flex; flex-wrap:wrap; gap:8px; }
+  .chips li{ padding:8px 14px; border:1px solid var(--line); border-radius:100px; background:var(--card); font-size:13px; color:#d6d2d7; }
+  .g-links{ flex-wrap:wrap; }
+  .marquee-track{ animation-duration:52s; }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }
 </style>
+
+
 </head>
-<body class="loader-active">
+<body class="loader-active" id="top">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- LOADER OVERLAY -->
 <div class="loader-overlay" id="loaderOverlay">
-  <div class="loader-stage">
+  <button type="button" class="loader-skip" id="loaderSkip">Skip intro</button>
+  <div class="loader-stage" aria-hidden="true">
     <div class="loader-particles" id="loaderParticles"></div>
     <div class="loader-final-glow" id="loaderFinalGlow"></div>
     <svg class="loader-progress-ring" viewBox="0 0 300 300">
@@ -374,7 +514,7 @@
 </div>
 
 
-<nav>
+<nav aria-label="Primary">
   <div class="nav-mark">NAHID<span>.</span></div>
   <div class="nav-links">
     <a href="#work">Work</a>
@@ -383,8 +523,9 @@
   </div>
 </nav>
 
+<main id="main">
 <section class="hero">
-  <div class="hero-eyebrow">Dhaka, Bangladesh <b>·</b> Growth &amp; Partnerships, CarryBee Express</div>
+  <div class="hero-eyebrow">Dhaka, Bangladesh <b>·</b> Key Account Manager, CarryBee Express</div>
   <h1 class="hero-title">Proof that I do<br>more than <span class="accent">close deals</span>.</h1>
   <p class="hero-sub">
     I'm <strong>Nuruzzaman Nahid</strong> — I manage key accounts, open new regional
@@ -395,7 +536,19 @@
     <a href="#work" class="btn btn-solid">See the tools →</a>
     <a href="#contact" class="btn btn-ghost">Get in touch</a>
   </div>
+  <p class="award"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg><span><strong>Emerging Sales Person Award</strong> · Q2 2026, CarryBee Express</span></p>
 </section>
+
+<section class="stats reveal" aria-label="Impact in numbers">
+  <dl class="stats-grid">
+    <div class="stat"><dt>key merchant accounts managed</dt><dd class="stat-num" data-to="731">731</dd></div>
+    <div class="stat"><dt>parcels a month across that portfolio</dt><dd class="stat-num" data-prefix="~" data-to="25000">~25,000</dd></div>
+    <div class="stat"><dt>client retention improvement</dt><dd class="stat-num" data-to="85" data-suffix="%">85%</dd></div>
+    <div class="stat"><dt>new merchants onboarded</dt><dd class="stat-num" data-to="193">193</dd></div>
+    <div class="stat"><dt>accounts negotiated on pricing</dt><dd class="stat-num" data-to="900">900</dd></div>
+  </dl>
+</section>
+
 
 <section id="work" class="gallery-wrap">
   <div class="gallery-head sec-head reveal">
@@ -403,99 +556,83 @@
     <h2>Internal tools, shipped and running</h2>
     <p>Not side projects — production tools built to fix a real bottleneck my team hit.</p>
   </div>
-  <div class="gallery-track">
+  <div class="gallery-ctrl">
+    <button type="button" class="gc-btn" id="galPrev" aria-label="Scroll projects left" aria-controls="galleryTrack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button type="button" class="gc-btn" id="galNext" aria-label="Scroll projects right" aria-controls="galleryTrack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+  <div class="gallery-track" id="galleryTrack" tabindex="0" role="region" aria-label="Project cards, scrollable">
     <div class="g-card">
-      <div class="g-thumb"><span>Escalation Form</span></div>
-      <h3>Merchants Issues Dashboard</h3>
-      <p>Merchant-facing intake form where issues get logged and escalated into one central trail, instead of scattered chats and sheets.</p>
-      <span class="g-tag">MVP</span>
-      <div class="g-links">
-        <a href="https://central-issues-escalation-form.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
-        <a href="https://github.com/nuruzzamannahid-dot/Merchants-issues-Dashboard" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-    </div>
-    <div class="g-card">
-      <div class="g-thumb"><span>Ops Console</span></div>
-      <h3>Central Issues Log — OPS Dashboard</h3>
-      <p>The operations-side console for the central issues log: every escalated issue in one place, so ops can track, act on and close them.</p>
-      <span class="g-tag">MVP</span>
-      <div class="g-links">
-        <a href="https://central-issues-escalation-ops-dashboard.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
-        <a href="https://github.com/nuruzzamannahid-dot/Central-Issues-Log-OPS-DASHBOARD" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-    </div>
-    <div class="g-card">
-      <div class="g-thumb"><span>AD Team Dashboard</span></div>
-      <h3>AD Team Issues Dashboard</h3>
-      <p>Dashboard for the Account Development team to follow open issues across accounts and see what needs attention next.</p>
-      <span class="g-tag">MVP</span>
-      <div class="g-links">
-        <a href="https://ad-team-issues-dashboard.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
-        <a href="https://github.com/BossNAHID/Ad-team-issues-Dashboard" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-    </div>
-    <div class="g-card">
-      <div class="g-thumb"><span>Escalation Form</span></div>
-      <h3>AD Issues Escalation Form</h3>
-      <p>The AD team's escalation form, feeding issues into the dashboard so nothing waits on a spreadsheet.</p>
-      <span class="g-tag">MVP</span>
-      <div class="g-links">
-        <a href="https://github.com/BossNAHID/AD-Issues-Escalation-FORM" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-    </div>
-    <div class="g-card">
-      <div class="g-thumb" style="animation-delay:0s"><span>Node · Express · Turso</span></div>
+      <div class="g-thumb" style="animation-delay:-0.0s"><span>Node · Express · Turso</span></div>
       <h3>CarryBee Issue Tracker</h3>
       <p>The AD team's day-to-day ops console — a Bangladesh hub map that flags trouble spots in real time, inline KAM remarks with follow-up tracking, and an office-hours-aware performance layer measuring response speed. Live in daily use.</p>
-      <span class="g-tag">Flagship · MVP</span>
+      <span class="g-tag g-tag--mvp">Flagship · MVP</span>
+      <div class="g-links">
+        <a href="https://ad-team-issues-dashboard.onrender.com/" target="_blank" rel="noopener" aria-label="CarryBee Issue Tracker — live site (opens in new tab)">Live <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/BossNAHID/Ad-team-issues-Dashboard" target="_blank" rel="noopener" aria-label="CarryBee Issue Tracker — source on GitHub (opens in new tab)">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
     <div class="g-card">
-      <div class="g-thumb" style="animation-delay:-1.2s"><span>Node · Express · Turso</span></div>
-      <h3>Issue Escalation API</h3>
-      <p>Replaced a fragile Sheets/Apps Script pipeline with a proper REST API so escalations don't wait on a spreadsheet to recalculate.</p>
-      <span class="g-tag">Escalation System</span>
+      <div class="g-thumb" style="animation-delay:-1.2s"><span>Express · Turso · Telegram</span></div>
+      <h3>IMAS LITE — Issue Escalation System</h3>
+      <p>Replaced a Google Sheets and Apps Script pipeline with an Express and Turso REST API and three connected apps: a raise-issue form, a KAM dashboard and an Ops/Hub console. Telegram alerts, hourly reminders from 9 AM to 6 PM, photo and voice attachments, a time-based escalation ladder, and a 10-minute auto-sync that moves tickets from Open to Resolved.</p>
+      <span class="g-tag g-tag--mvp">MVP</span>
+      <div class="g-links">
+        <a href="https://central-issues-escalation-form.onrender.com/" target="_blank" rel="noopener" aria-label="IMAS LITE — Issue Escalation System — raise-issue form, live (opens in new tab)">Form live <span aria-hidden="true">↗</span></a>
+        <a href="https://central-issues-escalation-ops-dashboard.onrender.com/" target="_blank" rel="noopener" aria-label="IMAS LITE — Issue Escalation System — Ops console, live (opens in new tab)">Ops live <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/nuruzzamannahid-dot/Central-Issues-Log-OPS-DASHBOARD" target="_blank" rel="noopener" aria-label="IMAS LITE — Issue Escalation System — Ops console source on GitHub (opens in new tab)">Ops code <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/BossNAHID/AD-Issues-Escalation-FORM" target="_blank" rel="noopener" aria-label="IMAS LITE — Issue Escalation System — raise-issue form source on GitHub (opens in new tab)">Form code <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
     <div class="g-card">
-      <div class="g-thumb" style="animation-delay:-2.4s"><span>Node.js</span></div>
-      <h3>Escalation Dashboard</h3>
-      <p>Multi-user dashboard with per-KAM tracking and live stats, so nothing slips between accounts.</p>
+      <div class="g-thumb" style="animation-delay:-2.4s"><span>Express · Turso · Telegram</span></div>
+      <h3>AD CRM</h3>
+      <p>Daily call tracking for the Account Development team — Telegram call alerts, a merchant directory kept in sync with Google Sheets, call records in Turso, and manager performance views.</p>
+      <span class="g-tag">Call Tracking</span>
+    </div>
+    <div class="g-card">
+      <div class="g-thumb" style="animation-delay:-3.6s"><span>Node · Express · Turso</span></div>
+      <h3>Merchant Pulse Dashboard</h3>
+      <p>The day-on-day order dashboard for the AD team — per-KAM merchant order tracking with top-merchant rankings, fed by an Apps Script to Turso pipeline.</p>
       <span class="g-tag">Dashboard</span>
     </div>
     <div class="g-card">
-      <div class="g-thumb" style="animation-delay:-3.6s"><span>Flask · Render</span></div>
+      <div class="g-thumb" style="animation-delay:-4.8s"><span>Lead Tracking</span></div>
+      <h3>Merchant Hunting Dashboard</h3>
+      <p>Lead tracker for new seller acquisition, with follow-up dates, communication status, notes and performance analysis for two KAMs.</p>
+      <span class="g-tag">Acquisition</span>
+    </div>
+    <div class="g-card">
+      <div class="g-thumb" style="animation-delay:-6.0s"><span>Node · Express · Turso</span></div>
+      <h3>Merchant Reply DB</h3>
+      <p>Telegram-based merchant chat dashboard with two-way replies and automatic extraction of merchant ID and phone number, plus a WhatsApp bridge that sends KAM remarks to the matching merchant group. Past replies become searchable instead of re-typed from memory.</p>
+      <span class="g-tag">Reference DB</span>
+      <div class="g-links">
+        <a href="https://merchant-reply-db.onrender.com/" target="_blank" rel="noopener" aria-label="Merchant Reply DB — live site (opens in new tab)">Live <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="g-card">
+      <div class="g-thumb" style="animation-delay:-7.2s"><span>Flask · Render</span></div>
       <h3>KAM Dashboard</h3>
       <p>CarryBee-branded dashboard with a built-in Mail Feedback Tracker for the KAM team.</p>
       <span class="g-tag">Ops Tool</span>
     </div>
     <div class="g-card">
-      <div class="g-thumb" style="animation-delay:-4.8s"><span>JS · Tailwind</span></div>
-      <h3>Merchant Issues Tracker</h3>
-      <p>A three-interface ticketing system so merchant issues get logged, assigned, and closed with a clear trail.</p>
-      <span class="g-tag">Ticketing</span>
-    </div>
-    <div class="g-card">
-      <div class="g-thumb" style="animation-delay:-6s"><span>Sheets API</span></div>
+      <div class="g-thumb" style="animation-delay:-8.4s"><span>Sheets API</span></div>
       <h3>Daily Shift Report Form</h3>
       <p>Self-contained HTML form writing straight into Google Sheets — no login screen to fight with.</p>
       <span class="g-tag">Reporting</span>
     </div>
     <div class="g-card">
-      <div class="g-thumb" style="animation-delay:-7.2s"><span>Apps Script</span></div>
+      <div class="g-thumb" style="animation-delay:-9.6s"><span>Apps Script</span></div>
       <h3>New Sales Report</h3>
       <p>Reporting workflow with Apps Script automation, built to survive Sheets web-app CORS quirks.</p>
       <span class="g-tag">Automation</span>
-    </div>
-    <div class="g-card">
-      <div class="g-thumb" style="animation-delay:-8.4s"><span>Node · Express · Turso</span></div>
-      <h3>Merchant Reply DB</h3>
-      <p>Central log of merchant replies pulled out of scattered chat threads, so past responses are searchable instead of re-typed from memory.</p>
-      <span class="g-tag">Reference DB</span>
     </div>
   </div>
 </section>
 
 <section class="spotlight reveal">
-  <div class="beams">
+  <div class="beams" aria-hidden="true">
     <div class="beam beam-l"></div>
     <div class="beam beam-r"></div>
     <div class="beam-tip">You</div>
@@ -527,36 +664,115 @@
       <div class="exp-desc">When a process breaks under spreadsheet weight, I build the dashboard, tracker, or bot that replaces it — usually a self-contained tool the team can run without me.</div>
     </div>
   </div>
+
+  <div class="reveal">
+    <h3 class="sub-h">Where I've done it</h3>
+    <ol class="tl">
+      <li>
+        <div class="tl-top"><h4>Associate, Account Development (Key Account Manager)</h4><span class="tl-org">CarryBee Express Ltd.</span><span class="tl-date">July 2026 – Present</span></div>
+        <ul>
+          <li>Manage 731 key merchant and corporate accounts generating about 25,000 parcels a month, as the primary contact for onboarding, pricing, performance reviews and escalations.</li>
+          <li>Negotiated pricing and contracts with 900 accounts across Sales and Account Development, matching rate cards to each merchant's volume, shipping mix and growth plans.</li>
+          <li>Resolve escalations with operations and hub teams by owning each issue from ticket to closure, updating the merchant at every step.</li>
+          <li>Eliminated manual Google Sheets ticket tracking by building IMAS LITE — three connected apps on one API.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="tl-top"><h4>Associate, Sales (Growth &amp; Partnerships)</h4><span class="tl-org">CarryBee Express Ltd.</span><span class="tl-date">June 2025 – July 2026</span></div>
+        <ul>
+          <li>Raised client retention 85% through regular check-ins, proactive follow-up on delayed orders and clear escalation paths.</li>
+          <li>Onboarded 193 new e-commerce merchants — Facebook sellers, own-site and marketplace sellers — handling outreach, pickup setup and pricing agreement end to end.</li>
+          <li>Helped merchants decide where to expand or change how they ship, by reviewing their order data and delivery performance.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="tl-top"><h4>Sales &amp; Social Media Development Executive</h4><span class="tl-org">IFixFast</span><span class="tl-date">December 2024 – July 2025</span></div>
+        <ul>
+          <li>Grew revenue 35% by driving B2C sales, partnerships and retention initiatives for a mobile repair company.</li>
+          <li>Boosted social media engagement 85% with targeted Facebook, Instagram and TikTok campaigns, and launched the "Same Day Repair" initiative.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="tl-top"><h4>Team Leader &amp; Telesales Executive</h4><span class="tl-org">Call Point Business Solutions Ltd.</span><span class="tl-date">July 2024 – November 2024</span></div>
+        <ul>
+          <li>Led a sales calling team and made outbound calls, building the target-driven habits used in later account roles.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="reveal facts">
+    <div class="fact">
+      <div class="eyebrow">Education</div>
+      <p class="fact-title">BSc in Statistics</p>
+      <p>National University, Bangladesh — the data side of account management: dashboards, reporting and root-cause work.</p>
+    </div>
+    <div class="fact">
+      <div class="eyebrow">Recognition</div>
+      <p class="fact-title">Emerging Sales Person Award</p>
+      <p>Q2 2026, CarryBee Express.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="sub-h">Core skills</h3>
+    <div class="skill-groups">
+      <div><p class="sg-title">Account &amp; partner management</p><ul class="chips"><li>Key Account Management</li><li>Partner Onboarding</li><li>Relationship Management</li><li>Business Reviews</li><li>Retention &amp; Churn Reduction</li><li>Escalation Management</li></ul></div>
+      <div><p class="sg-title">Sales &amp; negotiation</p><ul class="chips"><li>Pricing Negotiation</li><li>Contract Negotiation</li><li>B2B &amp; B2C Sales</li><li>Lead Generation</li><li>Telesales</li><li>Campaign &amp; Promotion Support</li></ul></div>
+      <div><p class="sg-title">Analytics &amp; reporting</p><ul class="chips"><li>Google Sheets</li><li>Microsoft Excel</li><li>Google Apps Script</li><li>Performance Dashboards</li><li>Reporting</li><li>Root-Cause Problem Solving</li></ul></div>
+      <div><p class="sg-title">Tooling</p><ul class="chips"><li>Node.js</li><li>Express</li><li>Turso</li><li>JavaScript</li><li>REST APIs</li><li>Telegram Bot API</li><li>Render</li><li>GitHub Actions</li></ul></div>
+    </div>
+  </div>
 </section>
 
-<div class="marquee">
+<div class="marquee" role="img" aria-label="Key skills: account management, negotiation, onboarding, retention, escalation management, sales, analytics and tooling">
   <div class="marquee-track">
-    <span><b>—</b>Node.js / Express</span>
-    <span><b>—</b>Google Apps Script</span>
-    <span><b>—</b>Turso / libSQL</span>
-    <span><b>—</b>Sheets API</span>
-    <span><b>—</b>Flask</span>
-    <span><b>—</b>B2B &amp; B2C Sales</span>
-    <span><b>—</b>Key Account Management</span>
-    <span><b>—</b>Node.js / Express</span>
-    <span><b>—</b>Google Apps Script</span>
-    <span><b>—</b>Turso / libSQL</span>
-    <span><b>—</b>Sheets API</span>
-    <span><b>—</b>Flask</span>
-    <span><b>—</b>B2B &amp; B2C Sales</span>
-    <span><b>—</b>Key Account Management</span>
-  </div>
+<span><b>—</b>Key Account Management</span>
+<span><b>—</b>Pricing Negotiation</span>
+<span><b>—</b>Partner Onboarding</span>
+<span><b>—</b>Retention &amp; Churn Reduction</span>
+<span><b>—</b>Escalation Management</span>
+<span><b>—</b>B2B &amp; B2C Sales</span>
+<span><b>—</b>Google Sheets &amp; Excel</span>
+<span><b>—</b>Sheets API</span>
+<span><b>—</b>Google Apps Script</span>
+<span><b>—</b>Node.js / Express</span>
+<span><b>—</b>Turso / libSQL</span>
+<span><b>—</b>REST APIs</span>
+<span><b>—</b>Telegram Bot API</span>
+<span><b>—</b>Flask</span>
+<span><b>—</b>Render</span>
+<span><b>—</b>GitHub Actions</span>
+<span><b>—</b>Key Account Management</span>
+<span><b>—</b>Pricing Negotiation</span>
+<span><b>—</b>Partner Onboarding</span>
+<span><b>—</b>Retention &amp; Churn Reduction</span>
+<span><b>—</b>Escalation Management</span>
+<span><b>—</b>B2B &amp; B2C Sales</span>
+<span><b>—</b>Google Sheets &amp; Excel</span>
+<span><b>—</b>Sheets API</span>
+<span><b>—</b>Google Apps Script</span>
+<span><b>—</b>Node.js / Express</span>
+<span><b>—</b>Turso / libSQL</span>
+<span><b>—</b>REST APIs</span>
+<span><b>—</b>Telegram Bot API</span>
+<span><b>—</b>Flask</span>
+<span><b>—</b>Render</span>
+<span><b>—</b>GitHub Actions</span>
+</div>
 </div>
 
 <section id="contact" class="contact reveal">
   <div class="eyebrow">Get in touch</div>
   <h2>Let's build something<br><span class="accent">useful</span> together.</h2>
   <div class="contact-links">
-    <a href="https://linkedin.com/in/n-nahid922" target="_blank" rel="noopener">LinkedIn ↗</a>
+<a href="mailto:nuruzzamannahid922@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/n-nahid922" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
     <a href="#top">Back to top ↑</a>
   </div>
 </section>
 
+</main>
 <footer>
   <div>© 2026 Nuruzzaman Nahid</div>
   <div>Dhaka, Bangladesh</div>
@@ -704,6 +920,7 @@
       setTimeout(() => {
         loaderOverlay.classList.add('done');
         document.body.classList.remove('loader-active');
+      releaseLoader();
         // Trigger portfolio reveal animations
         document.querySelectorAll('.reveal').forEach(el => {
           const rect = el.getBoundingClientRect();
@@ -747,7 +964,15 @@
     loaderIntervalId = setInterval(updateLoaderWord, loaderStepTime);
   }
 
-  startLoader();
+  let __seen=false; try{ __seen = sessionStorage.getItem('loaderSeen')==='1'; }catch(e){}
+  if(__seen || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    finishLoader();
+  } else {
+    document.querySelectorAll('nav,main,footer').forEach(el=>el.setAttribute('inert',''));
+    try{ sessionStorage.setItem('loaderSeen','1'); }catch(e){}
+    startLoader();
+    document.getElementById('loaderSkip').focus({preventScroll:true});
+  }
 
   /* ===== PORTFOLIO SCRIPT ===== */
 
@@ -770,7 +995,7 @@
   cards.forEach(el=>cardIO.observe(el));
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduceMotion){
+  if(!reduceMotion && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
     cards.forEach(card=>{
       card.addEventListener('mousemove', (e)=>{
         const r = card.getBoundingClientRect();
@@ -787,6 +1012,79 @@
     });
   }
 
+
+  /* ===== UI/UX RETOUCH SCRIPT ===== */
+  function releaseLoader(){
+    document.querySelectorAll('nav,main,footer').forEach(el=>el.removeAttribute('inert'));
+    loaderOverlay.setAttribute('aria-hidden','true');
+    loaderOverlay.setAttribute('inert','');
+  }
+  function finishLoader(){
+    clearInterval(loaderIntervalId);
+    loaderOverlay.classList.add('done');
+    document.body.classList.remove('loader-active');
+    releaseLoader();
+    document.querySelectorAll('.reveal').forEach(el=>{
+      const r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+    });
+  }
+  document.getElementById('loaderSkip').addEventListener('click', finishLoader);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && document.body.classList.contains('loader-active')) finishLoader(); });
+
+  const navEl = document.querySelector('nav');
+  const onScroll = ()=> navEl.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  const navLinks = [...document.querySelectorAll('.nav-links a')];
+  const secIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        navLinks.forEach(a=>{
+          if(a.getAttribute('href')==='#'+e.target.id) a.setAttribute('aria-current','true');
+          else a.removeAttribute('aria-current');
+        });
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  ['work','experience','contact'].forEach(id=>{ const el=document.getElementById(id); if(el) secIO.observe(el); });
+
+  const track = document.getElementById('galleryTrack');
+  const prevBtn = document.getElementById('galPrev');
+  const nextBtn = document.getElementById('galNext');
+  const behavior = reduceMotion ? 'auto' : 'smooth';
+  const step = ()=> { const c = track.querySelector('.g-card'); return c ? c.getBoundingClientRect().width + 20 : 360; };
+  const updateCtrl = ()=>{
+    prevBtn.disabled = track.scrollLeft <= 4;
+    nextBtn.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  };
+  prevBtn.addEventListener('click', ()=> track.scrollBy({left:-step(), behavior}));
+  nextBtn.addEventListener('click', ()=> track.scrollBy({left: step(), behavior}));
+  track.addEventListener('scroll', updateCtrl, {passive:true});
+  window.addEventListener('resize', updateCtrl);
+  track.addEventListener('keydown', (e)=>{
+    if(e.target !== track) return;
+    if(e.key==='ArrowRight'){ e.preventDefault(); track.scrollBy({left:step(), behavior}); }
+    if(e.key==='ArrowLeft'){ e.preventDefault(); track.scrollBy({left:-step(), behavior}); }
+  });
+  cards.forEach(c=> c.addEventListener('focusin', ()=> c.classList.add('in')));
+  updateCtrl();
+
+  /* ===== CV STATS COUNT-UP ===== */
+  const countIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      countIO.unobserve(e.target);
+      if(reduceMotion) return;
+      const el = e.target, to = +el.dataset.to, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      const t0 = performance.now(), dur = 1300;
+      (function tick(t){
+        const k = Math.min(1, (t - t0) / dur);
+        el.textContent = pre + Math.round(to * (1 - Math.pow(1 - k, 3))).toLocaleString('en-US') + suf;
+        if(k < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }, {threshold:.6});
+  document.querySelectorAll('.stat-num').forEach(el=>countIO.observe(el));
 </script>
 
 </body>
