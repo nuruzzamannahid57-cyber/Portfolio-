@@ -29,7 +29,7 @@
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADUklEQVR4nO2VTWxUVRTH77kf897ra+ejM+0bp84EpYChaQnV6sa2idJQZ0OiCUjYuCKBKFQSXRIJERIIrExM0IUa2RiNAXHjR6o7qbUL5BVJaYMuBmkHOtOZee/NvPvucfGkqTOgKzbYm5Obc5Ob88v5uP8LiXiSPMxFH2r0dcD/A8CbzgDAGEVEpZBSGgQBpTR0CCGhwyhFQgAAEQEAAJRSSqn/BgCQIAiWl0tCCMPQy+VyNBp1HNfz3Pb2dgCo1WrRaHSlUuGc+74UgnteXWGgRTTTNBGxFUDXRAffl93d3R9+8P7BA/vT6fTpUyc55/n8zvPnP9669als9vGzZ04JIQ4fej2fH3/7rTfz+fFz59678OXnu3e/4rouANwnhUQ8GVqys8vQzWeHnkNU1+yr+ZfyS7cLPZnsp598hIhHJiZGR0ZrlVJXyvph8vuTJ07MTE+9e/x4cbGAiH7dGRke0bW2ZGfXasDQmpsMAH/cXOCcbdm8pVC4lUjErXR61v61r68PkSyXSqlUstFoeK5XqVSllIXCrR0vjs3PL+x9dU+9Xm9N4h8ARCIEX1mp3L27PDT0tOd5lmXForGLX13q3bTRNNvisdi333w9OjrsOI4QnADoum5ftS9cvLRhQ47dr0TNU0QIBErZ9uwzQ4Mr5Uoul+3tfTKVShIglmW5rnvtt+uarlNGw5YqpVzPi3Z01H1fomztcnOJEJEgXp76uSeT4YLlctmG78/PL3DGNvVuXFoq7tv32uWfpnTDkFIqFSiFRybe2PXyrt+v2HsTj2kA+C8ARKSUZjIZ255ljOWy2bEdL0xO/ji2c7xYvDM8/LxpmpFIJJ6ItxlGPB7TNC2dto4eO1Zx3e8+++KdJzZHCFGIaysFq/8BAEgZxGId2wYGpn+Z2TbQzwWXUi4uLs3NzQ0Obtc0nTE6PT3T399XKpWTyc5i8U5PJhPR9bkbN/5cuDkQS1xxqpI8AHCPIR3HMc12x6khEgAihDAMo1qtKaUIQdM0XddljEkpOeeNhq9UYOhGRNeqgTQpa2o0NP1oAPC3HjC2WjelFKUUgBACoXgQQgAIIgnnMrzDAIKWx9w8RYgYyk64r661UvMg2WmNTh4FuV4HrAPWAY8C4C92eYJPJbWKFQAAAABJRU5ErkJggg==">
 
 <!-- 🛡️ Content Security Policy: no eval, no third-party scripts, fonts only from Google. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-GrvoUIQXF9pJVkn4sHvsmI90adzfUbZ7libn8poJVDo='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self'; base-uri 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-xqYggT1zZWJVffhmbqMpJdfBeSzdj0NhRzdMbh6Dkoc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self'; base-uri 'none';">
 
 <script type="application/ld+json">
 {
@@ -750,24 +750,26 @@
     transform:translateY(-3px);
     box-shadow:0 26px 50px -30px rgba(0,0,0,.95);
   }
-  .cust-qm{width:28px; height:28px; color:rgba(255,111,123,.45); margin-bottom:14px; flex:none;}
-  .cust-card blockquote{
-    font-size:14.2px; line-height:1.72; color:var(--text-2); flex:1; quotes:none;
+  .impact-kicker{
+    display:inline-flex; align-items:center; gap:7px; margin-bottom:14px;
+    font-size:10.5px; font-weight:600; letter-spacing:.11em; text-transform:uppercase;
+    color:var(--red-text);
   }
-  .cust-who{display:flex; align-items:center; gap:11px; margin-top:20px; padding-top:18px; border-top:1px solid var(--line-soft);}
-  .cust-avatar{
-    width:36px; height:36px; border-radius:50%; flex:none; display:grid; place-items:center;
-    background:rgba(226,55,68,.13); border:1px solid rgba(255,111,123,.28); color:var(--red-text);
+  .impact-kicker::before{content:''; width:16px; height:1px; background:currentColor; opacity:.7;}
+  .cust-card h3{
+    font-family:var(--disp); font-weight:700; font-size:16px;
+    letter-spacing:-.01em; line-height:1.3; margin-bottom:9px;
   }
-  .cust-avatar svg{width:17px; height:17px;}
-  .cust-meta{display:flex; flex-direction:column; gap:2px; min-width:0;}
-  .cust-meta b{font-size:13px; font-weight:600; color:var(--text); line-height:1.35;}
-  .cust-meta small{font-size:11.5px; color:var(--muted-2); line-height:1.35;}
-  .cust-tag{
-    align-self:flex-start; margin-top:14px; padding:4px 10px; border-radius:100px;
-    border:1px solid var(--line); font-size:10.5px; font-weight:600;
-    letter-spacing:.07em; text-transform:uppercase; color:var(--muted-2);
+  .cust-card p{font-size:13.6px; line-height:1.68; color:var(--muted); flex:1;}
+  .impact-foot{
+    display:flex; align-items:baseline; gap:9px; margin-top:20px; padding-top:16px;
+    border-top:1px solid var(--line-soft);
   }
+  .impact-foot b{
+    font-family:var(--disp); font-weight:800; font-size:21px; letter-spacing:-.03em;
+    color:var(--text); font-variant-numeric:tabular-nums; line-height:1;
+  }
+  .impact-foot span{font-size:11.5px; color:var(--muted-2); line-height:1.4;}
 
   .carousel-dots{
     display:flex; justify-content:center; align-items:center; gap:6px; margin-top:6px;
@@ -1035,7 +1037,7 @@
   <div class="nav-right">
     <div class="nav-links">
       <a href="#work">Work</a>
-      <a href="#customers">Customers</a>
+      <a href="#impact">Impact</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1500,92 +1502,63 @@
   </div>
 </section>
 
-<!-- ================= CUSTOMERS ================= -->
-<section id="customers" class="customers" aria-labelledby="cust-h">
+<!-- ================= IMPACT ================= -->
+<section id="impact" class="customers" aria-labelledby="impact-h">
   <div class="wrap">
     <div class="sec-head sec-head--wide reveal">
       <div>
-        <p class="eyebrow">Customer voices</p>
-        <h2 id="cust-h">What the merchants say</h2>
-        <p>Four years of account work is a lot of renewal conversations. These are the words that come up most often — onboarding that did not need chasing, and escalations that actually closed.</p>
+        <p class="eyebrow">How the work lands</p>
+        <h2 id="impact-h">What actually changes on an account</h2>
+        <p>Five things I do repeatedly, and the number each one moved. Not testimonial copy — just the mechanics of the job and what they produced.</p>
       </div>
       <div class="carousel-ctrl">
         <button type="button" class="c-btn c-btn--play" id="custPlay" aria-pressed="true" aria-label="Pause automatic slideshow">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="custPlayIcon"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
           <span id="custPlayLabel">Pause</span>
         </button>
-        <button type="button" class="c-btn" id="custPrev" aria-label="Previous customer" aria-controls="custTrack" disabled>
+        <button type="button" class="c-btn" id="custPrev" aria-label="Previous" aria-controls="custTrack" disabled>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
-        <button type="button" class="c-btn" id="custNext" aria-label="Next customer" aria-controls="custTrack">
+        <button type="button" class="c-btn" id="custNext" aria-label="Next" aria-controls="custTrack">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
         </button>
       </div>
     </div>
 
-    <!--
-      ⚠️  PLACEHOLDER TESTIMONIALS
-      Replace the blockquote text and .cust-meta with real, permission-cleared customer
-      quotes before publishing. Attributions are intentionally anonymised (segment +
-      city) so no company name is invented. Do not add logos without written consent.
-    -->
-    <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Customer testimonials">
-      <ul class="carousel-track" id="custTrack" tabindex="0" aria-label="Customer testimonials, scrollable">
-
+    <div class="carousel" role="region" aria-roledescription="carousel" aria-label="How the work lands">
+      <ul class="carousel-track" id="custTrack" tabindex="0" aria-label="Impact cards, scrollable">
         <li class="cust-card" role="group" aria-roledescription="slide" aria-label="1 of 5">
-          <svg class="cust-qm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 5C6.5 6.6 4.8 9.2 4.8 12.4c0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L9.5 5Zm9.6 0c-3 1.6-4.7 4.2-4.7 7.4 0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L19.1 5Z"/></svg>
-          <blockquote>We came in shipping around 400 parcels a month. The rate card was rebuilt around our real volume, and pickup was set for when our packers are actually on shift. Nobody has had to chase since.</blockquote>
-          <div class="cust-who">
-            <span class="cust-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.5 11H4.5L3 9Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg></span>
-            <span class="cust-meta"><b>Fashion &amp; lifestyle seller</b><small>Dhaka · own-site store</small></span>
-          </div>
-          <span class="cust-tag">Onboarding</span>
+          <span class="impact-kicker">Onboarding</span>
+          <h3>A rate card matched to real volume</h3>
+          <p>Every merchant was quoted off the same sheet. Now the card is rebuilt around their actual volume, shipping mix and growth plan — so pricing stops being a negotiation and starts being arithmetic.</p>
+          <div class="impact-foot"><b>193</b><span>merchants onboarded end to end</span></div>
         </li>
-
         <li class="cust-card" role="group" aria-roledescription="slide" aria-label="2 of 5">
-          <svg class="cust-qm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 5C6.5 6.6 4.8 9.2 4.8 12.4c0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L9.5 5Zm9.6 0c-3 1.6-4.7 4.2-4.7 7.4 0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L19.1 5Z"/></svg>
-          <blockquote>Escalations used to disappear into a WhatsApp group. Now every issue has a ticket, an owner and a clock on it. The last delivery dispute closed the same afternoon.</blockquote>
-          <div class="cust-who">
-            <span class="cust-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/></svg></span>
-            <span class="cust-meta"><b>Electronics merchant</b><small>Chattogram · marketplace seller</small></span>
-          </div>
-          <span class="cust-tag">Escalation management</span>
+          <span class="impact-kicker">Escalation</span>
+          <h3>Every issue has an owner and a clock</h3>
+          <p>Escalations used to live in a WhatsApp thread and a spreadsheet. IMAS LITE gives each one a ticket, an assigned owner, an office-hours response clock and an escalation ladder that fires on its own.</p>
+          <div class="impact-foot"><b>0</b><span>tickets tracked by hand since</span></div>
         </li>
-
         <li class="cust-card" role="group" aria-roledescription="slide" aria-label="3 of 5">
-          <svg class="cust-qm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 5C6.5 6.6 4.8 9.2 4.8 12.4c0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L9.5 5Zm9.6 0c-3 1.6-4.7 4.2-4.7 7.4 0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L19.1 5Z"/></svg>
-          <blockquote>The quarterly review is the only report I actually read. It tells me which hubs are slowing my orders down before my own customers start telling me.</blockquote>
-          <div class="cust-who">
-            <span class="cust-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>
-            <span class="cust-meta"><b>Corporate account</b><small>Dhaka · B2B shipper</small></span>
-          </div>
-          <span class="cust-tag">Business reviews</span>
+          <span class="impact-kicker">Business reviews</span>
+          <h3>Order data, read monthly</h3>
+          <p>A per-merchant view of order performance and delivery time, reviewed with the account rather than pushed at them. Problems surface in the numbers before they surface as complaints.</p>
+          <div class="impact-foot"><b>731</b><span>accounts on this cadence</span></div>
         </li>
-
         <li class="cust-card" role="group" aria-roledescription="slide" aria-label="4 of 5">
-          <svg class="cust-qm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 5C6.5 6.6 4.8 9.2 4.8 12.4c0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L9.5 5Zm9.6 0c-3 1.6-4.7 4.2-4.7 7.4 0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L19.1 5Z"/></svg>
-          <blockquote>I was selling on Facebook with no process at all. Pickup setup, pricing and the first few hundred orders were handled end to end — I never once had to visit an office.</blockquote>
-          <div class="cust-who">
-            <span class="cust-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
-            <span class="cust-meta"><b>New Facebook seller</b><small>Narayanganj · first-time shipper</small></span>
-          </div>
-          <span class="cust-tag">193 merchants onboarded</span>
+          <span class="impact-kicker">Retention</span>
+          <h3>Check in before it breaks</h3>
+          <p>Proactive follow-up on delayed orders and a clear escalation path, instead of waiting for a merchant to escalate. Renewal conversations open on a track record rather than a pitch.</p>
+          <div class="impact-foot"><b>85%</b><span>client retention improvement</span></div>
         </li>
-
         <li class="cust-card" role="group" aria-roledescription="slide" aria-label="5 of 5">
-          <svg class="cust-qm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 5C6.5 6.6 4.8 9.2 4.8 12.4c0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L9.5 5Zm9.6 0c-3 1.6-4.7 4.2-4.7 7.4 0 3.6 2 6.1 5 6.1 2.3 0 4-1.6 4-3.8 0-2.1-1.5-3.6-3.5-3.6-.4 0-.8 0-1 .1.4-1.7 1.7-3.1 3.4-4L19.1 5Z"/></svg>
-          <blockquote>They pulled our order data and showed us exactly where we were losing customers on delivery time. Two product lines moved to a different hub and the complaints stopped.</blockquote>
-          <div class="cust-who">
-            <span class="cust-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></span>
-            <span class="cust-meta"><b>Grocery &amp; essentials brand</b><small>Dhaka · expanding region</small></span>
-          </div>
-          <span class="cust-tag">Expansion advisory</span>
+          <span class="impact-kicker">Expansion</span>
+          <h3>Deciding where to ship next, on evidence</h3>
+          <p>Led the push into new regions — reviewing merchant order data to decide which network to open, what volume justifies it, and which existing accounts move first.</p>
+          <div class="impact-foot"><b>~25k</b><span>parcels a month across the portfolio</span></div>
         </li>
-
       </ul>
-
-      <div class="carousel-dots" id="custDots" role="group" aria-label="Choose a testimonial"></div>
-      <p class="carousel-note">Quotes anonymised at the merchant's request — names shared on request.</p>
+      <div class="carousel-dots" id="custDots" role="group" aria-label="Choose a card"></div>
     </div>
   </div>
 </section>
@@ -1962,7 +1935,7 @@
         });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['work', 'customers', 'experience', 'contact'].forEach(function (id) {
+    ['work', 'impact', 'experience', 'contact'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) secIO.observe(el);
     });
