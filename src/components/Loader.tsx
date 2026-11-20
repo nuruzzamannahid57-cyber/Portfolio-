@@ -48,7 +48,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
           <DotField />
           <div className="relative flex items-center justify-between font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
             <span className="flex items-center gap-3">
-              <span aria-hidden="true" className="logo-mark block h-7 w-7 bg-fg" />
+              <span className="grid h-8 w-8 place-items-center rounded-full border border-fg/40"><span aria-hidden="true" className="logo-mark block h-4 w-4 bg-fg" /></span>
               Portfolio
             </span>
             <span>©{new Date().getFullYear()}</span>
