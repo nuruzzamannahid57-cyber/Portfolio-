@@ -1,16 +1,11 @@
 import { profile } from '../data/portfolio';
 
 /**
- * Hero visual. The reference design uses a hero film; this portfolio ships
- * without a photo or film, so the hero card is a typographic monogram panel
- * that keeps the same size, tilt and reveal behaviour. Swap the body for an
- * <img> or <video> once you have a portrait to use.
+ * Hero portrait card. Keeps the same size, tilt and reveal behaviour as the reference.
  */
 export default function HeroVideo({ play }: { play: boolean }) {
   return (
     <div
-      role="img"
-      aria-label={`${profile.name} monogram`}
       className="relative flex h-full w-full items-end justify-center overflow-hidden rounded-[2px] border border-line bg-[radial-gradient(60%_50%_at_50%_30%,var(--glow),transparent_70%)]"
     >
       <div
@@ -21,13 +16,15 @@ export default function HeroVideo({ play }: { play: boolean }) {
         <span>Dhaka</span>
         <span>Key Account</span>
       </div>
-      <span
-        aria-hidden="true"
-        className="pointer-events-none mb-[12%] select-none font-serif text-[min(34vw,20rem)] leading-[0.8] italic text-fg transition-opacity duration-1000"
+      <img
+        src="/assets/portrait.png"
+        alt={`Portrait of ${profile.name}`}
+        width={801}
+        height={801}
+        className="absolute inset-0 h-full w-full object-cover object-[50%_20%] transition-opacity duration-1000"
         style={{ opacity: play ? 1 : 0 }}
-      >
-        NN
-      </span>
+        draggable={false}
+      />
     </div>
   );
 }
