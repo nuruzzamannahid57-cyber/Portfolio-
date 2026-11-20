@@ -76,7 +76,8 @@ export default function Expertise() {
         </div>
       </div>
 
-      <Reveal className="-mx-4 mb-20 md:-mx-8 md:mb-28">
+      {/* The orbit needs room to spin; on phones the skill chips below carry the same content. */}
+      <Reveal className="-mx-4 mb-20 hidden md:-mx-8 md:mb-28 md:block">
         <TechOrbit rings={ORBITS} />
         <p className="mt-2 text-center font-mono text-[10px] tracking-[0.22em] text-faint uppercase">Scroll or drag to spin the orbit · {ALL_SKILLS.length} skills in orbit</p>
       </Reveal>
