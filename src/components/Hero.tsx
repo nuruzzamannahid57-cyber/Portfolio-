@@ -1,13 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useAnimationControls, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import { profile } from '../data/portfolio';
 import { scrollToId } from '../lib/scroll';
 import Magnetic from './ui/Magnetic';
-import RotatingBadge from './fx/RotatingBadge';
 import DotField from './fx/DotField';
-import { useTheme } from '../lib/theme';
-import HeroVideo from './HeroVideo';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const NAME = 'NAHID';
@@ -53,47 +50,9 @@ export default function Hero({ ready }: { ready: boolean }) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const filmY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 160]);
   const nameX = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '-18%']);
   const textY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -90]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
-  // Pointer parallax.
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const px = useSpring(mx, { stiffness: 60, damping: 18 });
-  const py = useSpring(my, { stiffness: 60, damping: 18 });
-  const rotY = useTransform(px, (v) => v * 1.1);
-  const rotX = useTransform(py, (v) => v * -0.9);
-  const nameShiftX = useTransform(px, (v) => v * -1.2);
-
-  const [desktop, setDesktop] = useState(() => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches);
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
-    const on = () => setDesktop(mq.matches);
-    mq.addEventListener('change', on);
-    return () => mq.removeEventListener('change', on);
-  }, []);
-
-  // Spin a full turn whenever the theme changes (skip the first render).
-  const theme = useTheme();
-  const spin = useAnimationControls();
-  const firstTheme = useRef(true);
-  useEffect(() => {
-    if (firstTheme.current) {
-      firstTheme.current = false;
-      return;
-    }
-    if (reduce) return;
-    spin.set({ rotateY: 0 });
-    void spin.start({ rotateY: 360, transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] } });
-  }, [theme, reduce, spin]);
-
-  const onMove = (e: React.PointerEvent) => {
-    if (reduce || e.pointerType !== 'mouse') return;
-    mx.set((e.clientX / window.innerWidth - 0.5) * 18);
-    my.set((e.clientY / window.innerHeight - 0.5) * 12);
-  };
 
   const show = ready ? 'show' : 'hidden';
   const fadeIn = (delay: number) => ({
@@ -102,36 +61,10 @@ export default function Hero({ ready }: { ready: boolean }) {
     variants: { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 1, delay, ease: EASE } } },
   });
 
-  const film = (
-    <motion.div
-      className="group relative h-full"
-      initial={{ clipPath: 'inset(100% -40% 0% -40%)' }}
-      animate={ready ? { clipPath: 'inset(-100% -40% 0% -40%)' } : {}}
-      transition={{ duration: 1.6, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-      style={{ perspective: 1400 }}
-    >
-      {/* she turns to face you → a full turn on every light switch → follows the cursor */}
-      <motion.div
-        className="h-full"
-        initial={{ rotateY: reduce ? 0 : -30, z: reduce ? 0 : -140 }}
-        animate={ready ? { rotateY: 0, z: 0 } : {}}
-        transition={{ duration: 2.2, delay: 0.4, ease: EASE }}
-        style={{ transformStyle: 'preserve-3d' }}
-      >
-        <motion.div animate={spin} className="h-full" style={{ transformStyle: 'preserve-3d' }}>
-          <motion.div style={{ rotateY: rotY, rotateX: rotX, transformStyle: 'preserve-3d' }} className="relative h-full">
-            <HeroVideo play={ready} />
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </motion.div>
-  );
-
   return (
     <section
       id="home"
       ref={ref}
-      onPointerMove={onMove}
       className="relative isolate flex min-h-[100svh] flex-col overflow-hidden px-4 pt-24 md:h-[100svh] md:min-h-[700px] md:px-8 md:pt-28"
       aria-label="Introduction"
     >
@@ -141,19 +74,6 @@ export default function Hero({ ready }: { ready: boolean }) {
         style={{ background: 'radial-gradient(50% 50% at 70% 30%, var(--glow), transparent 70%)' }}
       />
       <DotField />
-
-      {/* Desktop film: big, anchored to the floor, standing in front of the giant name */}
-      {desktop && (
-      <motion.div
-        style={{ y: filmY }}
-        className="pointer-events-auto absolute right-[2vw] bottom-0 z-10 h-[calc(100svh-4.5rem)] max-h-[1040px] lg:right-[5vw]"
-      >
-        {film}
-        <div className="absolute bottom-[22%] -left-[16%] z-20">
-          <RotatingBadge ready={ready} />
-        </div>
-      </motion.div>
-      )}
 
       <div className="relative flex flex-1 flex-col justify-center pb-6 md:pb-20">
         <motion.div style={{ y: textY, opacity: fade }} className="relative z-20 md:max-w-[52%]">
@@ -183,7 +103,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           className="relative z-0 -mx-1 mt-2 text-[13vw] md:text-[clamp(3.2rem,13.5vw,14.5rem)] leading-[0.8] font-semibold tracking-[-0.065em] whitespace-nowrap select-none md:-mx-2"
           aria-label={`Hello, I'm ${profile.name}`}
         >
-          <motion.span aria-hidden="true" className="inline-block" style={{ x: nameShiftX }}>
+          <motion.span aria-hidden="true" className="inline-block">
             {NAME.split('').map((c, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.06em] align-bottom">
                 <motion.span
@@ -236,8 +156,6 @@ export default function Hero({ ready }: { ready: boolean }) {
           </motion.div>
         </motion.div>
 
-        {/* Mobile film: full width under the intro */}
-        {!desktop && <div className="relative z-10 -mx-4 mt-10 h-[min(78svh,140vw)]">{film}</div>}
       </div>
 
       <motion.div
