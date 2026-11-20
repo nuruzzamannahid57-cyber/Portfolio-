@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { prefersReducedMotion } from '../lib/theme';
+import DotField from './fx/DotField';
 
 /** Opening sequence: a counter climbs while the name assembles, then the curtain lifts. */
 export default function Loader({ onDone }: { onDone: () => void }) {
@@ -37,18 +38,22 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[100] flex flex-col justify-between bg-bg p-6 text-fg md:p-10"
+          className="fixed inset-0 z-[100] flex flex-col justify-between overflow-hidden bg-bg p-6 text-fg md:p-10"
           exit={{ clipPath: 'inset(0 0 100% 0)' }}
           initial={{ clipPath: 'inset(0 0 0% 0)' }}
           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
           role="status"
           aria-label="Loading portfolio"
         >
-          <div className="flex justify-between font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-            <span>Portfolio</span>
+          <DotField />
+          <div className="relative flex items-center justify-between font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
+            <span className="flex items-center gap-3">
+              <span aria-hidden="true" className="logo-mark block h-7 w-7 bg-fg" />
+              Portfolio
+            </span>
             <span>©{new Date().getFullYear()}</span>
           </div>
-          <div className="overflow-hidden">
+          <div className="relative overflow-hidden">
             <motion.h2
               className="text-[16vw] leading-[0.85] font-medium tracking-[-0.06em] md:text-[11vw]"
               initial={{ y: '100%' }}
@@ -58,7 +63,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
               Nahid<span className="font-serif font-normal italic">.</span>
             </motion.h2>
           </div>
-          <div className="flex items-end justify-between">
+          <div className="relative flex items-end justify-between">
             <span className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Turning the lights on</span>
             <span className="font-mono text-5xl tabular-nums md:text-7xl">{String(count).padStart(3, '0')}</span>
           </div>

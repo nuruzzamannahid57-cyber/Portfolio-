@@ -43,7 +43,7 @@ export default function Nav({ ready }: { ready: boolean }) {
           }`}
         >
           <a href="#home" onClick={go('home')} className="pointer-events-auto group flex items-center gap-3" aria-label="Nuruzzaman Nahid — back to top">
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-line bg-bg font-serif text-xl italic transition-colors group-hover:bg-fg group-hover:text-bg">S</span>
+            <span className="grid h-9 w-9 place-items-center"><span aria-hidden="true" className="logo-mark block h-9 w-9 bg-fg transition-opacity duration-500 group-hover:opacity-60" /></span>
             <span className={`hidden text-sm font-medium tracking-tight transition-all duration-500 sm:block ${compact ? 'w-0 overflow-hidden opacity-0' : 'w-auto opacity-100'}`}>
               {profile.name}
             </span>
