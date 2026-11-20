@@ -54,12 +54,12 @@ export default function Loader({ onDone }: { onDone: () => void }) {
           </div>
           <div className="relative overflow-hidden">
             <motion.h2
-              className="text-[16vw] leading-[0.85] font-medium tracking-[-0.06em] md:text-[11vw]"
+              className="text-[16vw] leading-[0.85] font-bold tracking-[-0.06em] md:text-[11vw]"
               initial={{ y: '100%' }}
               animate={{ y: '0%' }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             >
-              Nahid<span className="font-serif font-normal italic">.</span>
+              NAHID<span className="text-[#ff3b30]">.</span>
             </motion.h2>
           </div>
           <div className="relative flex items-end justify-between">
