@@ -279,8 +279,3 @@ html.lenis body {
   filter: blur(6px);
 }
 
-/* Brand mark: the uploaded circle-S, drawn as a mask so it follows the theme colour. */
-.logo-mark {
-  -webkit-mask: url('/assets/logo-mark.png') center / contain no-repeat;
-  mask: url('/assets/logo-mark.png') center / contain no-repeat;
-}
