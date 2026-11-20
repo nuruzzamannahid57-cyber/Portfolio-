@@ -1,0 +1,8 @@
+# Render static site: build the Vite app and publish the compiled output.
+# Without this, Render serves the source files and the page stays blank.
+services:
+  - type: web
+    name: my-portfolio-il33
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
