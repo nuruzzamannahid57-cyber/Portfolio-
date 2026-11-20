@@ -203,7 +203,7 @@ export default function Hero({ ready }: { ready: boolean }) {
 
         <motion.div style={{ y: textY, opacity: fade }} className="relative z-20 mt-8 md:mt-10 md:max-w-[46%] lg:max-w-[40%]">
           <motion.p {...fadeIn(0.7)} className="max-w-[36ch] text-[clamp(1.05rem,1.5vw,1.35rem)] leading-[1.4] tracking-[-0.015em] text-muted">
-            <span className="text-fg">Proof that I do</span>{' '}<span className="rounded-[2px] bg-[linear-gradient(to_top,var(--glow)_45%,transparent_45%)] px-1 text-fg">more than close deals.</span>
+            <span className="text-fg">Proof that I do</span>{' '}<span className="rounded-[3px] bg-fg/15 px-1.5 text-fg">more than close deals.</span>
           </motion.p>
 
           <motion.div {...fadeIn(0.9)} className="mt-8 flex flex-wrap items-center gap-3">
