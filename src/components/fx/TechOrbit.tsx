@@ -70,6 +70,7 @@ export default function TechOrbit({ rings: groups }: { rings: string[][] }) {
       figW = 0,
       figTop = 0,
       Rmax = 0;
+    let pillW: number[] = [];
 
     // ── her ─────────────────────────────────────────────────────────
     const sprite = new Image();
@@ -111,7 +112,8 @@ export default function TechOrbit({ rings: groups }: { rings: string[][] }) {
       figH = H * 0.94;
       figW = figH * (SPRITE.fw / SPRITE.fh);
       figTop = H - figH;
-      Rmax = Math.min(W * (W < 640 ? 0.47 : 0.4), figH * 0.62);
+      Rmax = Math.min(W * (W < 640 ? 0.3 : 0.4), figH * 0.62);
+      pillW = pills.current.map((el) => el?.offsetWidth ?? 0);
       const fw = figureWrap.current!;
       fw.style.height = `${figH}px`;
       fw.style.width = `${figW}px`;
@@ -190,7 +192,11 @@ export default function TechOrbit({ rings: groups }: { rings: string[][] }) {
         const ring = rings[it.ri];
         const p = project(ring, ringAngle[it.ri] + (it.k / ring.items.length) * 360);
         const depth = (p.z / p.R + 1) / 2; // 0 back … 1 front
-        el.style.transform = `translate(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px) translate(-50%, -50%) scale(${(p.s * (0.82 + depth * 0.22)).toFixed(3)})`;
+        const sc = p.s * (0.82 + depth * 0.22);
+        // keep the whole pill on screen (matters on phones)
+        const hw = ((pillW[idx] || 0) * sc) / 2;
+        const px = Math.min(Math.max(p.x, hw + 6), W - hw - 6);
+        el.style.transform = `translate(${px.toFixed(1)}px, ${p.y.toFixed(1)}px) translate(-50%, -50%) scale(${sc.toFixed(3)})`;
         el.style.zIndex = String(p.z >= 0 ? 30 + Math.round(depth * 20) : 1 + Math.round(depth * 3));
         el.style.opacity = (0.28 + depth * 0.72).toFixed(3);
         const b = (p.z < 0 ? Math.min(2.4, (-p.z / p.R) * 2.4) : 0).toFixed(1);
@@ -332,7 +338,7 @@ export default function TechOrbit({ rings: groups }: { rings: string[][] }) {
             pills.current[i] = el;
           }}
           aria-hidden="true"
-          className="orbit-pill absolute top-0 left-0 flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-[12px] whitespace-nowrap shadow-[var(--shadow)] md:px-4 md:py-2 md:text-[15px]"
+          className="orbit-pill absolute top-0 left-0 flex items-center gap-2 rounded-full border border-line bg-bg px-2.5 py-1 text-[11px] whitespace-nowrap shadow-[var(--shadow)] md:px-4 md:py-2 md:text-[15px]"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-fg" style={{ opacity: 0.35 + it.ri * 0.3 }} />
           {it.name}
